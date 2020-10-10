@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/e-commerce/static/css/main.33e497fa.chunk.css",
+    "main.js": "/e-commerce/static/js/main.9f938af3.chunk.js",
+    "main.js.map": "/e-commerce/static/js/main.9f938af3.chunk.js.map",
+    "runtime-main.js": "/e-commerce/static/js/runtime-main.96a20351.js",
+    "runtime-main.js.map": "/e-commerce/static/js/runtime-main.96a20351.js.map",
+    "static/js/2.66b6b52d.chunk.js": "/e-commerce/static/js/2.66b6b52d.chunk.js",
+    "static/js/2.66b6b52d.chunk.js.map": "/e-commerce/static/js/2.66b6b52d.chunk.js.map",
+    "index.html": "/e-commerce/index.html",
+    "precache-manifest.318ec586eb278f3ef916f75ab879ed5a.js": "/e-commerce/precache-manifest.318ec586eb278f3ef916f75ab879ed5a.js",
+    "service-worker.js": "/e-commerce/service-worker.js",
+    "static/css/main.33e497fa.chunk.css.map": "/e-commerce/static/css/main.33e497fa.chunk.css.map",
+    "static/js/2.66b6b52d.chunk.js.LICENSE.txt": "/e-commerce/static/js/2.66b6b52d.chunk.js.LICENSE.txt",
+    "static/media/hats.jpg": "/e-commerce/static/media/hats.3c278c78.jpg",
+    "static/media/jackets.jpg": "/e-commerce/static/media/jackets.2a3963ae.jpg",
+    "static/media/mens.webp": "/e-commerce/static/media/mens.78e4c1bb.webp",
+    "static/media/shoes.jpg": "/e-commerce/static/media/shoes.d4606edd.jpg",
+    "static/media/womens.jpeg": "/e-commerce/static/media/womens.30b5a722.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.96a20351.js",
+    "static/js/2.66b6b52d.chunk.js",
+    "static/css/main.33e497fa.chunk.css",
+    "static/js/main.9f938af3.chunk.js"
+  ]
+}
