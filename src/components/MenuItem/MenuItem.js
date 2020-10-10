@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import "./MenuItem.css";
 
 class MenuItem extends Component {
   render() {
+    let activeClass = this.props.index === 0 ? "active" : "";
     return (
-      <div>
-        <div>
+      <div className={`carousel-item ${activeClass}`} data-interval="3000">
+        <img src={this.props.src} alt={this.props.title} />
+        <div className="carousel-caption d-none d-md-block">
           <h1>{this.props.title}</h1>
           <p>Shop Now!</p>
         </div>
