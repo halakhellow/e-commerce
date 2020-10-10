@@ -1,0 +1,10 @@
+.carousel-inner {
+    width: 55rem;
+    margin: 1rem auto;
+}
+
+.carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
