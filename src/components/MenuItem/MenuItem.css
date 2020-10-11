@@ -9,3 +9,42 @@
     background-color: #000000b0;
     margin: 2rem auto;
 }
+
+.carousel-caption:hover {
+    cursor: pointer;
+    transition: 1s;
+    background-color: #000000e0;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-name: wobble;
+}
+
+@keyframes wobble {
+    from {
+      transform: none;
+    }
+  
+    15% {
+      transform: translate3d(-2rem, 0, 0) rotate3d(0, 0, 1, -10deg);
+    }
+  
+    30% {
+      transform: translate3d(2rem, 0, 0) rotate3d(0, 0, 1, 10deg);
+    }
+  
+    45% {
+      transform: translate3d(-1rem, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
+  
+    60% {
+      transform: translate3d(1rem, 0, 0) rotate3d(0, 0, 1, 5deg);
+    }
+  
+    75% {
+      transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 0deg);
+    }
+  
+    to {
+      transform: none;
+    }
+  }
