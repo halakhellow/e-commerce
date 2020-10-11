@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <ItemsNavbar />
-      <Route exact path="/" component={HomePage} />
+      <Route exact path={["/e-commerce", "/"]} component={HomePage} />
       <Route exact path="/hats" render={() => <h1>Hats</h1>} />
       <Route exact path="/jackets" render={() => <h1>Jackets</h1>} />
       <Route exact path="/shoes" render={() => <h1>Shoes</h1>} />
