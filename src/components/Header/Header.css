@@ -1,0 +1,22 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2b3a67;
+  padding: 0.7rem 2rem;
+}
+
+.Header a {
+  color: #aee5d8;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.Header-options a {
+  padding: 1rem;
+}
+.Header-options a:hover {
+  color: #2196f3;
+}
+.Header-options a.active {
+  color: yellow;
+}

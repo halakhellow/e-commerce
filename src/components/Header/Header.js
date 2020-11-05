@@ -5,11 +5,15 @@ import "./Header.css";
 class Header extends Component {
   render() {
     return (
-      <div>
+      <div className="Header">
         <NavLink to="/">HOME</NavLink>
-        <div>
-          <NavLink to="/shop">SHOP</NavLink>
-          <NavLink to="/sign-in">SIGN IN</NavLink>
+        <div className="Header-options">
+          <NavLink activeClassName="active" to="/shop">
+            SHOP
+          </NavLink>
+          <NavLink activeClassName="active" to="/sign-in">
+            SIGN IN
+          </NavLink>
         </div>
       </div>
     );
