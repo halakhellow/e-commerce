@@ -3,7 +3,12 @@ import "./FormInput.css";
 
 class FormInput extends Component {
   render() {
-    return <input onChange={this.props.handleChange} {...this.props} />;
+    return (
+      <div className="FormInput">
+        {this.props.value ? <label>{this.props.name}</label> : null}
+        <input onChange={this.props.handleChange} {...this.props} />
+      </div>
+    );
   }
 }
 
