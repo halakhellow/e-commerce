@@ -20,7 +20,7 @@ class SignIn extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ textAlign: "center", padding: "2rem" }}>
         <h4>Sign in with your email and password!</h4>
         <form onSubmit={this.handleSubmit}>
           <FormInput
