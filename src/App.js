@@ -3,12 +3,14 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import ItemsNavbar from "./components/ItemsNavbar/ItemsNavbar";
 import { Route } from "react-router-dom";
+import ShopPage from "./pages/ShopPage/ShopPage";
 
 function App() {
   return (
     <div>
       <ItemsNavbar />
       <Route exact path={["/e-commerce", "/"]} component={HomePage} />
+      <Route exact path="/shop" component={ShopPage} />
       <Route exact path="/hats" render={() => <h1>Hats</h1>} />
       <Route exact path="/jackets" render={() => <h1>Jackets</h1>} />
       <Route exact path="/shoes" render={() => <h1>Shoes</h1>} />
