@@ -1,0 +1,15 @@
+.FormInput {
+  margin: 1rem;
+}
+
+.FormInput input {
+  border: none;
+  outline: none;
+  width: 30%;
+  padding: 0.5rem;
+  box-shadow: -2px 4px 6px 0px #2b3a67;
+}
+.FormInput label {
+  text-transform: capitalize;
+  display: block;
+}
