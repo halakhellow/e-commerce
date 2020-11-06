@@ -1,15 +1,24 @@
 .FormInput {
-  margin: 1rem;
+  margin: 2rem auto;
+  width: 30%;
+  display: flex;
+  background-color: whitesmoke;
+  box-shadow: -4px 4px 3px 0px rgba(43, 58, 103, 0.73);
+}
+.FormInput label {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  background-color: #d2d2d2;
 }
 
 .FormInput input {
   border: none;
+  background-color: inherit;
   outline: none;
-  width: 30%;
-  padding: 0.5rem;
-  box-shadow: -2px 4px 6px 0px #2b3a67;
-}
-.FormInput label {
-  text-transform: capitalize;
-  display: block;
+  width: 85%;
+  padding: 0.7rem;
+  font-size: 18px;
 }
