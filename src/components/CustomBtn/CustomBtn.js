@@ -3,7 +3,7 @@ import "./CustomBtn.css";
 
 class CustomBtn extends Component {
   render() {
-    return <button {...this.props}></button>;
+    return <button className="CustomBtn" {...this.props}></button>;
   }
 }
 

@@ -1,0 +1,16 @@
+.CustomBtn {
+  width: 15%;
+  margin-top: 1rem;
+  outline: none;
+  border: none;
+  background-color: #2b3a67;
+  color: whitesmoke;
+  padding: 0.4rem;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.CustomBtn:hover {
+  background-color: #1b2540;
+  transition: 0.5s;
+}
