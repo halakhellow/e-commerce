@@ -3,9 +3,14 @@ import "./FormInput.css";
 
 class FormInput extends Component {
   render() {
+    let envelope = "fa fa-envelope",
+      lock = "fas fa-lock";
     return (
       <div className="FormInput">
-        {this.props.value ? <label>{this.props.name}</label> : null}
+        <label
+          htmlFor={this.props.id}
+          className={this.props.id === "email" ? envelope : lock}
+        ></label>
         <input onChange={this.props.handleChange} {...this.props} />
       </div>
     );
