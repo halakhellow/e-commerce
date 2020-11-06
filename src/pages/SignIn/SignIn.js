@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import CustomBtn from "../../components/CustomBtn/CustomBtn";
 import FormInput from "../../components/FormInput/FormInput";
+import { Link } from "react-router-dom";
+import "./SignIn.css";
 class SignIn extends Component {
   constructor() {
     super();
@@ -12,7 +14,7 @@ class SignIn extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.id]: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -20,13 +22,13 @@ class SignIn extends Component {
   }
   render() {
     return (
-      <div style={{ textAlign: "center", padding: "2rem" }}>
-        <h4>Sign in with your email and password!</h4>
+      <div className="SignIn">
+        <h4>Welcome!</h4>
         <form onSubmit={this.handleSubmit}>
           <FormInput
             handleChange={this.handleChange}
             value={this.state.email}
-            name="email"
+            id="email"
             type="text"
             placeholder="Email"
             required
@@ -34,13 +36,17 @@ class SignIn extends Component {
           <FormInput
             handleChange={this.handleChange}
             value={this.state.password}
-            name="password"
+            id="password"
             type="password"
             placeholder="Password"
             required
           />
           <CustomBtn type="submit">Sign in</CustomBtn>
         </form>
+        <div className="register">
+          <span>Don't have an account ? </span>
+          <Link to="/register">Sign up</Link>
+        </div>
       </div>
     );
   }
