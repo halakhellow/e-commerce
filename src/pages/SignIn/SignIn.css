@@ -1,0 +1,12 @@
+.SignIn {
+  text-align: center;
+  padding: 2rem;
+}
+
+.SignIn .register {
+  margin-top: 1rem;
+}
+
+.SignIn .register a:hover {
+  text-decoration: none;
+}
