@@ -42,10 +42,18 @@ class SignIn extends Component {
             placeholder="Password"
             required
           />
-          <CustomBtn type="submit">Sign in</CustomBtn>
-          <CustomBtn onClick={signInWithGoogle} googleSignIn>
-            Sign in with Google
-          </CustomBtn>
+          <div className="SignIn-buttons">
+            <CustomBtn type="submit">Sign in</CustomBtn>
+            <CustomBtn onClick={signInWithGoogle} googleSignIn>
+              Sign in with
+              <span>G</span>
+              <span>o</span>
+              <span>o</span>
+              <span>g</span>
+              <span>l</span>
+              <span>e</span>
+            </CustomBtn>
+          </div>
         </form>
         <div className="register">
           <span>Don't have an account ? </span>
