@@ -1,5 +1,5 @@
 .CustomBtn {
-  width: 15%;
+  width: 48%;
   margin-top: 1rem;
   outline: none;
   border: none;
@@ -13,4 +13,12 @@
 .CustomBtn:hover {
   background-color: #1b2540;
   transition: 0.5s;
+}
+
+.google-sign-in {
+  background-color: whitesmoke;
+  color: black;
+}
+.google-sign-in:hover {
+  background-color: #fff;
 }

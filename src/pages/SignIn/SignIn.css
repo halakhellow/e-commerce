@@ -1,6 +1,35 @@
 .SignIn {
   text-align: center;
   padding: 2rem;
+  width: 33%;
+  margin: auto;
+}
+
+.SignIn-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.SignIn-buttons span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.SignIn-buttons span:first-of-type {
+  margin-left: 4px;
+}
+.SignIn-buttons span:nth-of-type(1),
+.SignIn-buttons span:nth-of-type(4) {
+  color: #4285f4;
+}
+.SignIn-buttons span:nth-of-type(2),
+.SignIn-buttons span:nth-of-type(6) {
+  color: #db4437;
+}
+.SignIn-buttons span:nth-of-type(3) {
+  color: #f4b400;
+}
+.SignIn-buttons span:nth-of-type(5) {
+  color: #0f9d58;
 }
 
 .SignIn .register {
