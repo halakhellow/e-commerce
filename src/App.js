@@ -31,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <ItemsNavbar />
         <Route exact path={["/e-commerce", "/"]} component={HomePage} />
         <Route exact path="/shop" component={ShopPage} />
