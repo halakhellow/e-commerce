@@ -5,18 +5,19 @@
   padding: 0.7rem 2rem;
 }
 
-.Header a {
+.Header .option {
   color: #aee5d8;
   text-decoration: none;
   font-size: 1.4rem;
+  cursor: pointer;
 }
 
-.Header-options a {
+.Header-options .option {
   padding: 1rem;
 }
-.Header-options a:hover {
+.Header-options .option:hover {
   color: #2196f3;
 }
-.Header-options a.active {
+.Header-options .option.active {
   color: yellow;
 }
