@@ -3,7 +3,14 @@ import "./CustomBtn.css";
 
 class CustomBtn extends Component {
   render() {
-    return <button className="CustomBtn" {...this.props}></button>;
+    return (
+      <button
+        className={`${
+          this.props.googleSignIn ? "google-sign-in" : ""
+        } CustomBtn`}
+        {...this.props}
+      ></button>
+    );
   }
 }
 
