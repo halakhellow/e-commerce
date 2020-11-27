@@ -43,7 +43,9 @@ class SignIn extends Component {
             required
           />
           <CustomBtn type="submit">Sign in</CustomBtn>
-          <CustomBtn onClick={signInWithGoogle}>Sign in with Google</CustomBtn>
+          <CustomBtn onClick={signInWithGoogle} googleSignIn>
+            Sign in with Google
+          </CustomBtn>
         </form>
         <div className="register">
           <span>Don't have an account ? </span>
