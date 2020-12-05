@@ -3,6 +3,7 @@ import FormInput from "../../components/FormInput/FormInput";
 import CustomBtn from "../../components/CustomBtn/CustomBtn";
 import { auth, createUserProfile } from "../../firebase/firebaseUtilities";
 import "./Register.css";
+import HrWithText from "../../components/HrWithText/HrWithText";
 
 class Register extends Component {
   constructor() {
@@ -48,7 +49,7 @@ class Register extends Component {
     let { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="Register">
-        <h4>Sign up with email and password :</h4>
+        <HrWithText content="Create New Account" />
         <form onSubmit={this.handleSubmit}>
           <FormInput
             handleChange={this.handleChange}
@@ -86,7 +87,7 @@ class Register extends Component {
             placeholder="Confirm Password"
             required
           />
-          <div>{this.state.errors}</div>
+          <div className="Register-error">{this.state.errors}</div>
           <CustomBtn type="submit">Sign up</CustomBtn>
         </form>
       </div>
