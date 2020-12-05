@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import CustomBtn from "../../components/CustomBtn/CustomBtn";
 import FormInput from "../../components/FormInput/FormInput";
 import { Link } from "react-router-dom";
-import { signInWithGoogle } from "../../firebase/firebaseUtilities";
+import { auth, signInWithGoogle } from "../../firebase/firebaseUtilities";
+import HrWithText from "../../components/HrWithText/HrWithText";
 import "./SignIn.css";
 class SignIn extends Component {
   constructor() {
@@ -17,14 +18,20 @@ class SignIn extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
-    this.setState({ email: "", password: "" });
+    let { email, password } = this.state;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: "", password: "" });
+    } catch (err) {
+      console.error(err);
+    }
   }
   render() {
     return (
       <div className="SignIn">
-        <h4>Welcome!</h4>
+        <HrWithText content="Welcome!" />
         <form onSubmit={this.handleSubmit}>
           <FormInput
             handleChange={this.handleChange}
@@ -46,7 +53,7 @@ class SignIn extends Component {
           />
           <div className="SignIn-buttons">
             <CustomBtn type="submit">Sign in</CustomBtn>
-            <CustomBtn onClick={signInWithGoogle} googleSignIn>
+            <CustomBtn type="button" onClick={signInWithGoogle} googleSignIn>
               Sign in with
               <span>G</span>
               <span>o</span>
