@@ -4,3 +4,9 @@
   width: 33%;
   margin: auto;
 }
+
+.Register .Register-error {
+  text-align: left;
+  color: #bf0303;
+  margin-top: -25px;
+}
