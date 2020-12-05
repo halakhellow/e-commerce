@@ -47,7 +47,7 @@ class Register extends Component {
   render() {
     let { displayName, email, password, confirmPassword } = this.state;
     return (
-      <div>
+      <div className="Register">
         <h4>Sign up with email and password :</h4>
         <form onSubmit={this.handleSubmit}>
           <FormInput
