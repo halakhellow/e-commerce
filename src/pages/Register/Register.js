@@ -31,14 +31,14 @@ class Register extends Component {
     }
     try {
       let { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await createUserProfile(user);
-      this.setState = {
+      await createUserProfile(user, { displayName });
+      this.setState({
         displayName: "",
         email: "",
         password: "",
         confirmPassword: "",
         errors: "",
-      };
+      });
     } catch (err) {
       console.error(err);
     }
