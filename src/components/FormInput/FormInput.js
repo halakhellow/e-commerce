@@ -7,7 +7,7 @@ class FormInput extends Component {
       <div className="FormInput">
         <label
           htmlFor={this.props.id}
-          className={`fas fa-${this.props.id}`}
+          className={`fas fa-${this.props.faIcon}`}
         ></label>
         <input onChange={this.props.handleChange} {...this.props} />
       </div>
