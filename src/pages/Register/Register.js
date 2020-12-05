@@ -12,7 +12,9 @@ class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
+      errors: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -20,12 +22,34 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  async handleSubmit(e) {
+    e.preventDefault();
+    let { displayName, email, password, confirmPassword } = this.state;
+    if (password !== confirmPassword) {
+      this.setState({ errors: "The passwords don't match" });
+      return;
+    }
+    try {
+      let { user } = await auth.createUserWithEmailAndPassword(email, password);
+      await createUserProfile(user);
+      this.setState = {
+        displayName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        errors: "",
+      };
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   render() {
     let { displayName, email, password, confirmPassword } = this.state;
     return (
       <div>
         <h4>Sign up with email and password :</h4>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <FormInput
             handleChange={this.handleChange}
             value={displayName}
@@ -62,6 +86,7 @@ class Register extends Component {
             placeholder="Confirm Password"
             required
           />
+          <div>{this.state.errors}</div>
           <CustomBtn type="submit">Sign up</CustomBtn>
         </form>
       </div>
