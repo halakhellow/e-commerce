@@ -15,7 +15,7 @@ class SignIn extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
-    this.setState({ [e.target.id]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +29,8 @@ class SignIn extends Component {
           <FormInput
             handleChange={this.handleChange}
             value={this.state.email}
-            id="envelope"
+            faIcon="envelope"
+            name="email"
             type="text"
             placeholder="Email"
             required
@@ -37,7 +38,8 @@ class SignIn extends Component {
           <FormInput
             handleChange={this.handleChange}
             value={this.state.password}
-            id="lock"
+            faIcon="lock"
+            name="password"
             type="password"
             placeholder="Password"
             required
