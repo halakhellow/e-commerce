@@ -13,7 +13,13 @@ class Register extends Component {
       password: "",
       confirmPassword: "",
     };
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   render() {
     let { displayName, email, password, confirmPassword } = this.state;
     return (
@@ -24,34 +30,39 @@ class Register extends Component {
             handleChange={this.handleChange}
             value={displayName}
             type="text"
-            id="user"
+            name="displayName"
+            faIcon="user"
             placeholder="Name"
             required
-          ></FormInput>
+          />
           <FormInput
             handleChange={this.handleChange}
             value={email}
             type="email"
-            id="envelope"
+            name="email"
+            faIcon="envelope"
             placeholder="Email"
             required
-          ></FormInput>
+          />
           <FormInput
             handleChange={this.handleChange}
             value={password}
             type="password"
-            id="lock"
+            name="password"
+            faIcon="lock"
             placeholder="Password"
             required
-          ></FormInput>
+          />
           <FormInput
             handleChange={this.handleChange}
             value={confirmPassword}
             type="password"
-            id="lock"
+            name="confirmPassword"
+            faIcon="lock"
             placeholder="Confirm Password"
             required
-          ></FormInput>
+          />
+          <CustomBtn type="submit">Sign up</CustomBtn>
         </form>
       </div>
     );
