@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FormInput from "../../components/FormInput/FormInput";
 import CustomBtn from "../../components/CustomBtn/CustomBtn";
-import { auth, createUserProfile } from "../../firebase/firebaseUtilities";
+import { auth, createUserDocument } from "../../firebase/firebaseUtilities";
 import "./Register.css";
 import HrWithText from "../../components/HrWithText/HrWithText";
 
@@ -32,7 +32,7 @@ class Register extends Component {
     }
     try {
       let { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await createUserProfile(user, { displayName });
+      await createUserDocument(user, { displayName });
       this.setState({
         displayName: "",
         email: "",
