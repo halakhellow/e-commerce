@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import ItemsNavbar from "./components/ItemsNavbar/ItemsNavbar";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import Header from "./components/Header/Header";
 import SignIn from "./pages/SignIn/SignIn";
@@ -38,8 +38,20 @@ class App extends Component {
         <ItemsNavbar />
         <Route exact path={["/e-commerce", "/"]} component={HomePage} />
         <Route exact path="/shop" component={ShopPage} />
-        <Route exact path="/sign-in" component={SignIn} />
-        <Route exact path="/register" component={Register} />
+        <Route
+          exact
+          path="/sign-in"
+          render={() =>
+            this.props.currentUser ? <Redirect to="/" /> : <SignIn />
+          }
+        />
+        <Route
+          exact
+          path="/register"
+          render={() =>
+            this.props.currentUser ? <Redirect to="/" /> : <Register />
+          }
+        />
         <Route exact path="/hats" render={() => <h1>Hats</h1>} />
         <Route exact path="/jackets" render={() => <h1>Jackets</h1>} />
         <Route exact path="/shoes" render={() => <h1>Shoes</h1>} />
@@ -49,8 +61,10 @@ class App extends Component {
   }
 }
 
+let mapStateToProps = (state) => ({ currentUser: state.user.currentUser });
+
 let mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
