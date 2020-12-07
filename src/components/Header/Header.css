@@ -11,9 +11,14 @@
   font-size: 1.4rem;
   cursor: pointer;
 }
+.Header-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
 .Header-options .option {
-  padding: 1rem;
+  padding: 0 1rem;
 }
 .Header-options .option:hover {
   color: #2196f3;
