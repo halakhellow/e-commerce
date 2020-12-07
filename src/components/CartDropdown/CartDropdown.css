@@ -1,0 +1,24 @@
+.CartDropdown {
+  position: absolute;
+  width: 240px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #2b3a67;
+  background-color: #e7e5e5;
+  top: 61px;
+  right: 40px;
+  z-index: 4;
+}
+.CartItems {
+  height: 256px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.CartDropdown button {
+  margin: 1rem auto 0;
+  font-size: 14px;
+}
