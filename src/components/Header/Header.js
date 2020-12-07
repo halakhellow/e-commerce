@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { auth } from "../../firebase/firebaseUtilities";
+import { connect } from "react-redux";
 import "./Header.css";
 
 class Header extends Component {
@@ -29,4 +30,6 @@ class Header extends Component {
   }
 }
 
-export default Header;
+let mapStateToProps = (state) => ({ currentUser: state.user.currentUser });
+
+export default connect(mapStateToProps)(Header);
