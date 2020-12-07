@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { auth } from "../../firebase/firebaseUtilities";
 import { connect } from "react-redux";
 import "./Header.css";
+import CartIcon from "../CartIcon/CartIcon";
 
 class Header extends Component {
   render() {
@@ -24,6 +25,7 @@ class Header extends Component {
               SIGN IN
             </NavLink>
           )}
+          <CartIcon />
         </div>
       </div>
     );
