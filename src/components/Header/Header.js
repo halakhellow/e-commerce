@@ -4,6 +4,7 @@ import { auth } from "../../firebase/firebaseUtilities";
 import { connect } from "react-redux";
 import "./Header.css";
 import CartIcon from "../CartIcon/CartIcon";
+import CartDropdown from "../CartDropdown/CartDropdown";
 
 class Header extends Component {
   render() {
@@ -27,6 +28,7 @@ class Header extends Component {
           )}
           <CartIcon />
         </div>
+        <CartDropdown />
       </div>
     );
   }
