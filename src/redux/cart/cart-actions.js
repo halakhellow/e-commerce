@@ -1,7 +1,12 @@
 import cartActionTypes from "./cart-action-types";
 
-let toggleCartHidden = {
+let toggleCartHidden = () => ({
   type: cartActionTypes.TOGGLE_CART_HIDDEN,
-};
+});
 
-export default toggleCartHidden;
+let addItems = (item) => ({
+  type: cartActionTypes.ADD_ITEMS,
+  payload: item,
+});
+
+export { toggleCartHidden, addItems };
