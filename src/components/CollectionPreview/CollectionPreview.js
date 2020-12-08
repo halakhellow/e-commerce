@@ -12,7 +12,7 @@ class CollectionPreview extends Component {
           {collection.items
             .filter((item, index) => index < 5)
             .map((item) => (
-              <CollectionItem key={item.id} {...item} />
+              <CollectionItem key={item.id} item={item} />
             ))}
         </div>
       </div>
