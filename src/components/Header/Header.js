@@ -28,12 +28,15 @@ class Header extends Component {
           )}
           <CartIcon />
         </div>
-        <CartDropdown />
+        {this.props.hidden ? null : <CartDropdown />}
       </div>
     );
   }
 }
 
-let mapStateToProps = (state) => ({ currentUser: state.user.currentUser });
+let mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+  hidden: state.cart.hidden,
+});
 
 export default connect(mapStateToProps)(Header);
