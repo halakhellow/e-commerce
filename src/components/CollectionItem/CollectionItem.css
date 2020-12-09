@@ -5,6 +5,7 @@
   height: 300px;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .CollectionItem:hover .CollectionItem-img {
@@ -33,7 +34,7 @@
 
 .CollectionItem button {
   position: absolute;
-  top: 49%;
+  top: 42%;
   width: auto;
   display: none;
   font-size: 1rem;
