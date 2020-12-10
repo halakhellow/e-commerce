@@ -15,3 +15,8 @@ export let selectCartItemsCount = createSelector(
       0
     )
 );
+
+export let selectCartHidden = createSelector(
+  [selectCart],
+  (cart) => cart.hidden
+);
