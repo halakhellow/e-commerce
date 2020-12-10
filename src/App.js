@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ItemsNavbar from "./components/ItemsNavbar/ItemsNavbar";
 import { Route, Redirect } from "react-router-dom";
 import ShopPage from "./pages/ShopPage/ShopPage";
+import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import Header from "./components/Header/Header";
 import SignIn from "./pages/SignIn/SignIn";
 import Register from "./pages/Register/Register";
@@ -40,6 +41,7 @@ class App extends Component {
         <ItemsNavbar />
         <Route exact path={["/e-commerce", "/"]} component={HomePage} />
         <Route exact path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={CheckoutPage} />
         <Route
           exact
           path="/sign-in"
