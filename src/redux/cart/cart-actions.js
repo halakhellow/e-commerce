@@ -4,9 +4,13 @@ let toggleCartHidden = () => ({
   type: cartActionTypes.TOGGLE_CART_HIDDEN,
 });
 
-let addItems = (item) => ({
-  type: cartActionTypes.ADD_ITEMS,
+let addItem = (item) => ({
+  type: cartActionTypes.ADD_ITEM,
   payload: item,
 });
 
-export { toggleCartHidden, addItems };
+let removeItem = (item) => ({
+  type: cartActionTypes.REMOVE_ITEM,
+  payload: item,
+});
+export { toggleCartHidden, addItem, removeItem };

@@ -11,10 +11,18 @@ let cartReducer = (state = INITIAL_STATE, action) => {
     case cartActionTypes.TOGGLE_CART_HIDDEN:
       return { ...state, hidden: !state.hidden };
 
-    case cartActionTypes.ADD_ITEMS:
+    case cartActionTypes.ADD_ITEM:
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload),
+      };
+
+    case cartActionTypes.REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item) => item.id !== action.payload.id
+        ),
       };
 
     default:
