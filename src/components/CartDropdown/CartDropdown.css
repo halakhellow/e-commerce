@@ -22,3 +22,19 @@
   margin: 1rem auto 0;
   font-size: 14px;
 }
+
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-cart img {
+  width: 150px;
+  height: 130px;
+  margin: 1rem auto 0;
+}
+
+.empty-cart span {
+  font-size: 18px;
+  text-align: center;
+}
