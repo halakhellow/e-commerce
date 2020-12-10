@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItems } from "../../redux/cart/cart-actions";
+import { addItem } from "../../redux/cart/cart-actions";
 import CustomBtn from "../CustomBtn/CustomBtn";
 import "./CollectionItem.css";
 
 class CollectionItem extends Component {
   render() {
     let { name, imageUrl, price } = this.props.item;
-    let { addItems, item } = this.props;
+    let { addItem, item } = this.props;
     return (
       <div className="CollectionItem">
         <div
@@ -18,14 +18,14 @@ class CollectionItem extends Component {
           <span>{name}</span>
           <span>${price}</span>
         </div>
-        <CustomBtn onClick={() => addItems(item)}>Add to Cart</CustomBtn>
+        <CustomBtn onClick={() => addItem(item)}>Add to Cart</CustomBtn>
       </div>
     );
   }
 }
 
 let mapDispatchTOProps = (dispatch) => ({
-  addItems: (item) => dispatch(addItems(item)),
+  addItem: (item) => dispatch(addItem(item)),
 });
 
 export default connect(null, mapDispatchTOProps)(CollectionItem);
