@@ -6,9 +6,10 @@ import "./CartDropdown.css";
 import CartItem from "../CartItem/CartItem";
 import { selectCartItems } from "../../redux/cart/cart-selectors";
 import { createStructuredSelector } from "reselect";
+import { toggleCartHidden } from "../../redux/cart/cart-actions";
 import emptyCart from "../../images/empty-cart.png";
 
-let CartDropdown = ({ cartItems, history }) => (
+let CartDropdown = ({ cartItems, history, dispatch }) => (
   <div className="CartDropdown">
     <div className="CartItems">
       {cartItems.length ? (
@@ -22,7 +23,10 @@ let CartDropdown = ({ cartItems, history }) => (
     </div>
     <CustomBtn
       disabled={!cartItems.length}
-      onClick={() => history.push("/checkout")}
+      onClick={() => {
+        history.push("/checkout");
+        dispatch(toggleCartHidden());
+      }}
     >
       CHECKOUT
     </CustomBtn>
