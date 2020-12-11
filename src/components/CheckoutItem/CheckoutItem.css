@@ -28,7 +28,19 @@
 }
 
 .quantity {
-  padding-left: 20px;
+  display: flex;
+}
+.value {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  align-self: center;
+  padding-bottom: 6px;
+}
+.quantity .fas {
+  cursor: pointer;
+  color: #2b3a67;
+  font-size: small;
+  align-self: center;
 }
 
 .remove-button {
