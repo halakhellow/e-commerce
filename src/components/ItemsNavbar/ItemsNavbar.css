@@ -1,21 +1,21 @@
 .Navbar {
-    display: flex;
-    justify-content: space-around; 
-    padding: 0.7rem 2rem;
-    background-color: #AEE5D8;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 2rem;
+  background-color: #dddbdb;
 }
 
 .Navbar a {
-    text-decoration: none;
-    font-size: 1.3rem;
-    color: #2B3A67;
-    transition: 0.3s;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #2b3a67;
+  transition: 0.3s;
 }
 .Navbar a:hover {
-    color: #2196F3;
+  color: #2e2ee1;
 }
 
 .Navbar a.active {
-    color: #1e1ebf;
-    font-weight: 600;
+  color: #1e1ebf;
+  font-weight: 600;
 }

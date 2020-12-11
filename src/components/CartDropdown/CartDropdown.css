@@ -23,6 +23,13 @@
   font-size: 14px;
 }
 
+.CartDropdown button:disabled {
+  opacity: 0.8;
+}
+.CartDropdown button:disabled:hover {
+  background-color: #2b3a67;
+}
+
 .empty-cart {
   display: flex;
   flex-direction: column;
