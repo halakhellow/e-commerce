@@ -13,4 +13,10 @@ let removeItem = (item) => ({
   type: cartActionTypes.REMOVE_ITEM,
   payload: item,
 });
-export { toggleCartHidden, addItem, removeItem };
+
+let decreaseQuantity = (item) => ({
+  type: cartActionTypes.DECREASE_ITEM_QUANTITY,
+  payload: item,
+});
+
+export { toggleCartHidden, addItem, removeItem, decreaseQuantity };
