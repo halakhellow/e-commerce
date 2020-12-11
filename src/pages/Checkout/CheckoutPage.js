@@ -1,5 +1,6 @@
 import React from "react";
 import "./CheckoutPage.css";
+import HrWithText from "../../components/HrWithText/HrWithText";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import {
@@ -10,12 +11,10 @@ import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
 
 let CheckoutPage = ({ cartItems, total }) => (
   <div className="CheckoutPage">
+    <HrWithText content="Your Shopping Cart" />
     <div className="CheckoutPage-header">
       <div className="header-block">
         <span>Product</span>
-      </div>
-      <div className="header-block">
-        <span>Description</span>
       </div>
       <div className="header-block">
         <span>Quantity</span>

@@ -6,12 +6,20 @@
   align-items: center;
   margin: 50px auto 0;
 }
+.CheckoutPage hr {
+  width: inherit;
+  margin: 0 0 2rem;
+}
 .CheckoutPage-header {
   width: 100%;
-  padding: 10px 0;
+  padding-bottom: 3px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
+}
+.header-block:first-of-type {
+  width: 46%;
+  padding-left: 23%;
 }
 .header-block {
   width: 23%;
@@ -21,7 +29,7 @@
 }
 
 .total-price {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: auto;
-  font-size: 36px;
+  font-size: 30px;
 }
