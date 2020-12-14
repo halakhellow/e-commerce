@@ -2,12 +2,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## E-commerce :
  React application 
 ## Objectives :
- -React router 
- -Forms in React
- -Firebase (authentication & firestore)
- -Redux
- -Selectors
- -Higher order components (withRouter, connect)
+ -React router  
+ -Forms in React  
+ -Firebase (authentication & firestore)  
+ -Redux  
+ -Selectors  
+ -Higher order components (withRouter, connect)  
 ## Deployment : 
  https://halakhellow.github.io/e-commerce/
 
