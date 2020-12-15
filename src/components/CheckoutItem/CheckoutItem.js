@@ -7,10 +7,15 @@ import {
   removeItem,
 } from "../../redux/cart/cart-actions";
 
-let CheckoutItem = ({ item, dispatch }) => {
+let CheckoutItem = ({ item, provided, innerRef, dispatch }) => {
   let { name, imageUrl, price, quantity } = item;
   return (
-    <div className="CheckoutItem">
+    <div
+      className="CheckoutItem"
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={innerRef}
+    >
       <div className="img-container">
         <img src={imageUrl} alt={name} />
       </div>
