@@ -28,6 +28,11 @@
   width: 8%;
 }
 
+.CheckoutPage ul {
+  width: 100%;
+  padding-left: 0;
+}
+
 .total-price {
   margin: 10px 0 20px;
   margin-left: auto;
