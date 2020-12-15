@@ -18,11 +18,11 @@
   border-bottom: 1px solid darkgrey;
 }
 .header-block:first-of-type {
-  width: 46%;
-  padding-left: 23%;
+  width: 48%;
+  padding-left: 26%;
 }
 .header-block {
-  width: 23%;
+  width: 22%;
 }
 .header-block:last-child {
   width: 8%;

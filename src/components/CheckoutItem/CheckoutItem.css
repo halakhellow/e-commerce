@@ -8,8 +8,20 @@
   font-size: 20px;
   align-items: center;
 }
+
+div[data-rbd-drag-handle-context-id="1"] {
+  cursor: default;
+}
+
+.CheckoutItem .fa-grip-lines-vertical {
+  padding-left: 8px;
+  font-size: 1rem;
+  width: 4%;
+  cursor: grab;
+}
+
 .img-container {
-  width: 23%;
+  width: 22%;
   height: 100%;
   padding: 0 15px 0 10px;
 }
@@ -25,7 +37,7 @@
 .name,
 .quantity,
 .price {
-  width: 23%;
+  width: 22%;
 }
 
 .quantity {
