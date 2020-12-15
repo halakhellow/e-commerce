@@ -3,6 +3,7 @@ let cartActionTypes = {
   ADD_ITEM: "ADD_ITEM",
   REMOVE_ITEM: "REMOVE_ITEM",
   DECREASE_ITEM_QUANTITY: "DECREASE_ITEM_QUANTITY",
+  UPDATE_CART_ITEMS: "UPDATE_CART_ITEMS",
 };
 
 export default cartActionTypes;

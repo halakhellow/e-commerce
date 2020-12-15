@@ -31,6 +31,11 @@ let cartReducer = (state = INITIAL_STATE, action) => {
         cartItems: decreaseItemQuantity(state.cartItems, action.payload),
       };
 
+    case cartActionTypes.UPDATE_CART_ITEMS:
+      return {
+        ...state,
+        cartItems: action.payload,
+      };
     default:
       return state;
   }

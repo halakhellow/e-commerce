@@ -19,4 +19,15 @@ let decreaseQuantity = (item) => ({
   payload: item,
 });
 
-export { toggleCartHidden, addItem, removeItem, decreaseQuantity };
+let updateCartItems = (items) => ({
+  type: cartActionTypes.UPDATE_CART_ITEMS,
+  payload: items,
+});
+
+export {
+  toggleCartHidden,
+  addItem,
+  removeItem,
+  decreaseQuantity,
+  updateCartItems,
+};
