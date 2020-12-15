@@ -33,6 +33,10 @@
   padding-left: 0;
 }
 
+.CheckoutPage ul div {
+  cursor: default;
+}
+
 .total-price {
   margin: 10px 0 20px;
   margin-left: auto;
