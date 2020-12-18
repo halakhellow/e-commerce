@@ -19,7 +19,7 @@ let CheckoutPage = ({ cartItems, total, updateCartItems }) => {
       result.source.index === result.destination.index
     )
       return;
-    let updatedItems = cartItems;
+    let updatedItems = Array.from(cartItems);
     let [reorderedItem] = updatedItems.splice(result.source.index, 1);
     updatedItems.splice(result.destination.index, 0, reorderedItem);
 
