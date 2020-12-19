@@ -1,4 +1,5 @@
 import { createSelector } from "reselect";
+import memoize from "lodash.memoize";
 
 let selectShop = (state) => state.shop;
 
@@ -7,4 +8,12 @@ let selectShopCollections = createSelector(
   (shop) => shop.collections
 );
 
-export { selectShopCollections };
+let selectCollection = memoize((collectionUrlParam) =>
+  createSelector([selectShopCollections], (collections) =>
+    collections.find(
+      (collection) => collectionUrlParam === collection.routeName
+    )
+  )
+);
+
+export { selectShopCollections, selectCollection };
