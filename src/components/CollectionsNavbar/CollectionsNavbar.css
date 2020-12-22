@@ -1,0 +1,21 @@
+.CollectionsNavbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 2rem;
+  background-color: #dddbdb;
+}
+
+.CollectionsNavbar a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #2b3a67;
+  transition: 0.3s;
+}
+.CollectionsNavbar a:hover {
+  color: #2e2ee1;
+}
+
+.CollectionsNavbar a.active {
+  color: #1e1ebf;
+  font-weight: 600;
+}
