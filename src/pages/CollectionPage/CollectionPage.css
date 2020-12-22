@@ -1,0 +1,19 @@
+.CollectionPage {
+  display: flex;
+  flex-direction: column;
+}
+.CollectionPage-title {
+  margin: 5px auto 20px;
+  color: #7b0101;
+  text-shadow: 1px 1px black;
+}
+
+.CollectionPage-items {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  margin: auto;
+  grid-gap: 15px;
+}
+.CollectionPage .CollectionItem {
+  margin-bottom: 30px;
+}
