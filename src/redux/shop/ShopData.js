@@ -1,5 +1,5 @@
-let ShopData = [
-  {
+let ShopData = {
+  hats: {
     id: 1,
     title: "Hats",
     routeName: "hats",
@@ -60,7 +60,7 @@ let ShopData = [
       },
     ],
   },
-  {
+  shoes: {
     id: 2,
     title: "Shoes",
     routeName: "shoes",
@@ -115,7 +115,7 @@ let ShopData = [
       },
     ],
   },
-  {
+  jackets: {
     id: 3,
     title: "Jackets",
     routeName: "jackets",
@@ -152,7 +152,7 @@ let ShopData = [
       },
     ],
   },
-  {
+  womens: {
     id: 4,
     title: "Womens",
     routeName: "womens",
@@ -201,7 +201,7 @@ let ShopData = [
       },
     ],
   },
-  {
+  mens: {
     id: 5,
     title: "Mens",
     routeName: "mens",
@@ -244,6 +244,6 @@ let ShopData = [
       },
     ],
   },
-];
+};
 
 export default ShopData;
