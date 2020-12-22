@@ -3,7 +3,9 @@ import "./CartItem.css";
 
 let CartItem = ({ item: { imageUrl, name, price, quantity } }) => (
   <div className="CartItem">
-    <img src={imageUrl} alt={name} />
+    <div className="img-container">
+      <img src={imageUrl} alt={name} />
+    </div>
     <div className="CartItem-details">
       <span className="CartItem-name">{name}</span>
       <span>Quantity : {quantity}</span>
