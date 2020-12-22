@@ -9,10 +9,9 @@ let selectShopCollections = createSelector(
 );
 
 let selectCollection = memoize((collectionUrlParam) =>
-  createSelector([selectShopCollections], (collections) =>
-    collections.find(
-      (collection) => collectionUrlParam === collection.routeName
-    )
+  createSelector(
+    [selectShopCollections],
+    (collections) => collections[collectionUrlParam]
   )
 );
 
