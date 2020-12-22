@@ -4,8 +4,16 @@
   height: 80px;
   margin-bottom: 20px;
 }
-.CartItem img {
+.CartItem .img-container {
   width: 30%;
+  padding-left: 20px;
+}
+
+.CartItem .img-container img {
+  height: 100%;
+  width: 75px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 9px #2b3a67;
 }
 
 .CartItem-details {
@@ -14,7 +22,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-left: 5px;
+  margin-left: 1rem;
   padding-top: 3px;
   font-size: 13px;
   font-weight: 600;
@@ -23,5 +31,5 @@
   color: #2b3a67;
   font-style: italic;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 1rem;
 }

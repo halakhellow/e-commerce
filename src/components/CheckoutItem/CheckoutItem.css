@@ -16,12 +16,12 @@
   cursor: grab;
 }
 
-.img-container {
+.CheckoutItem .img-container {
   width: 22%;
   height: 100%;
   padding: 0 15px 0 10px;
 }
-.img-container img {
+.CheckoutItem .img-container img {
   width: 60%;
   height: 100%;
   border-radius: 35%;
