@@ -1,0 +1,10 @@
+.StripeButton {
+  width: 100%;
+}
+
+.StripeButton button {
+  display: block;
+  width: 150px;
+  padding: 5px;
+  margin: 0 0 1rem auto;
+}
