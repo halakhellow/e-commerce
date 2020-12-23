@@ -1,15 +1,19 @@
 import React from "react";
-import "./CheckoutPage.css";
-import HrWithText from "../../components/HrWithText/HrWithText";
 import { connect } from "react-redux";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { createStructuredSelector } from "reselect";
+
+import HrWithText from "../../components/HrWithText/HrWithText";
+import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
+import StripeButton from "../../components/stripe/StripeButton";
+
+import { updateCartItems } from "../../redux/cart/cart-actions";
 import {
   selectCartItems,
   selectItemsTotalPrice,
 } from "../../redux/cart/cart-selectors";
-import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
-import { updateCartItems } from "../../redux/cart/cart-actions";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+
+import "./CheckoutPage.css";
 
 let CheckoutPage = ({ cartItems, total, updateCartItems }) => {
   function handleOnDragEnd(result) {
@@ -70,6 +74,12 @@ let CheckoutPage = ({ cartItems, total, updateCartItems }) => {
       </DragDropContext>
 
       <div className="total-price">Total Price : ${total}</div>
+      <StripeButton price={total} />
+      <div className="test-card">
+        *Please use the following test credit card for payments*
+        <br />
+        5555 5555 5555 4444 - Exp: 07/21 - CVV: 123 &nbsp;
+      </div>
     </div>
   );
 };

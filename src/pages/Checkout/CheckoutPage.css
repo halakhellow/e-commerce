@@ -42,3 +42,10 @@
   margin-left: auto;
   font-size: 30px;
 }
+
+.test-card {
+  width: 100%;
+  text-align: end;
+  margin-bottom: 1rem;
+  color: darkred;
+}
