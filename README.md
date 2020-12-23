@@ -8,7 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  -Redux  
  -Selectors  
  -Higher order components (withRouter, connect)  
- -Redux-persist
+ -Redux-persist  
+ -Dynamic routing (Route parameters)  
+ -Stripe
 ## Deployment : 
  https://halakhellow.github.io/e-commerce/
 
