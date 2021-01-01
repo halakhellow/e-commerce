@@ -16,7 +16,7 @@ let CheckoutItem = ({ item, provided, innerRef, dispatch }) => {
       {...provided.dragHandleProps}
       ref={innerRef}
     >
-      <div class="fas fa-grip-lines-vertical"></div>
+      <div className="fas fa-grip-lines-vertical"></div>
       <div className="img-container">
         <img src={imageUrl} alt={name} />
       </div>
