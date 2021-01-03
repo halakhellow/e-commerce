@@ -1,23 +1,34 @@
 import React, { Component } from "react";
-import "./App.css";
-import HomePage from "./pages/HomePage/HomePage";
 import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
+import {
+  addCollectionAndDocuments,
+  auth,
+  createUserDocument,
+} from "./firebase/firebaseUtilities";
+import { setCurrentUser } from "./redux/user/user-actions";
+import { selectCurrentUser } from "./redux/user/user-selectors";
+import { selectShopCollections } from "./redux/shop/shop-selectors";
+
+import HomePage from "./pages/HomePage/HomePage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import CheckoutPage from "./pages/Checkout/CheckoutPage";
 import Header from "./components/Header/Header";
 import SignIn from "./pages/SignIn/SignIn";
 import Register from "./pages/Register/Register";
-import { auth, createUserDocument } from "./firebase/firebaseUtilities";
-import { connect } from "react-redux";
-import { setCurrentUser } from "./redux/user/user-actions";
-import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "./redux/user/user-selectors";
+
+import "./App.css";
 
 class App extends Component {
   unSubscribeFromAuth = null;
 
   componentDidMount() {
-    let { setCurrentUser } = this.props;
+    let { setCurrentUser, collections } = this.props;
+    let collectionsArray = Object.keys(collections).map(
+      (key) => collections[key]
+    );
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         let userRef = await createUserDocument(userAuth);
@@ -26,6 +37,13 @@ class App extends Component {
         });
       } else {
         setCurrentUser(userAuth);
+        addCollectionAndDocuments(
+          "collections",
+          collectionsArray.map((collection) => ({
+            title: collection.title,
+            items: collection.items,
+          }))
+        );
       }
     });
   }
@@ -61,6 +79,7 @@ class App extends Component {
 
 let mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  collections: selectShopCollections,
 });
 
 let mapDispatchToProps = (dispatch) => ({
