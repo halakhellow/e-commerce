@@ -1,8 +1,7 @@
 import shopActionTypes from "./shop-action-types";
-import ShopData from "./ShopData";
 
 let INITIAL_STATE = {
-  collections: ShopData,
+  collections: null,
 };
 
 let shopReducer = (state = INITIAL_STATE, action) => {
