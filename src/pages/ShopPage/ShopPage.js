@@ -7,11 +7,24 @@ import {
   firestore,
 } from "../../firebase/firebaseUtilities";
 
+import withLoader from "../../components/withLoader/withLoader";
+
 import CollectionOverview from "../../components/CollectionOverview/CollectionOverview";
 import CollectionPage from "../CollectionPage/CollectionPage";
+
 import { updateCollections } from "../../redux/shop/shop-actions";
 
+let CollectionOverviewWithLoader = withLoader(CollectionOverview);
+let CollectionPageWithLoader = withLoader(CollectionPage);
+
 class ShopPage extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+    };
+  }
+
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
@@ -20,14 +33,28 @@ class ShopPage extends React.Component {
     collectionsRef.onSnapshot((snapshot) => {
       let collections = convertCollectionsSnapshotToMap(snapshot);
       updateCollections(collections);
+      this.setState({ loading: false });
     });
   }
 
   render() {
+    let { loading } = this.state;
     return (
       <div>
-        <Route exact path="/shop" component={CollectionOverview} />
-        <Route exact path="/shop/:collection" component={CollectionPage} />
+        <Route
+          exact
+          path="/shop"
+          render={(props) => (
+            <CollectionOverviewWithLoader isLoading={loading} {...props} />
+          )}
+        />
+        <Route
+          exact
+          path="/shop/:collection"
+          render={(props) => (
+            <CollectionPageWithLoader isLoading={loading} {...props} />
+          )}
+        />
       </div>
     );
   }
