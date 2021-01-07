@@ -11,12 +11,14 @@ let CollectionOverview = ({ collections }) => (
   <div>
     <CollectionsNavbar />
     <div>
-      {Object.keys(collections).map((key) => (
-        <CollectionPreview
-          key={collections[key].id}
-          collection={collections[key]}
-        />
-      ))}
+      {collections
+        ? Object.keys(collections).map((key) => (
+            <CollectionPreview
+              key={collections[key].id}
+              collection={collections[key]}
+            />
+          ))
+        : null}
     </div>
   </div>
 );
