@@ -7,10 +7,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  -Firebase (authentication & firestore)  
  -Redux  
  -Selectors  
- -Higher order components (withRouter, connect)  
+ -Higher order components (withRouter, connect, )  
  -Redux-persist  
  -Dynamic routing (Route parameters)  
- -Stripe
+ -Stripe  
+ -Asynchronous Redux (Redux-thunk)
 ## Deployment : 
  https://halakhellow.github.io/e-commerce/
 
