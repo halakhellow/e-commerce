@@ -15,4 +15,18 @@ let selectCollection = memoize((collectionUrlParam) =>
   )
 );
 
-export { selectShopCollections, selectCollection };
+let selectIsCollectionFetching = createSelector(
+  [selectShop],
+  (shop) => shop.isFetching
+);
+
+let selectIsCollectionLoaded = createSelector([selectShop], (shop) =>
+  shop.collections ? true : false
+);
+
+export {
+  selectShopCollections,
+  selectCollection,
+  selectIsCollectionFetching,
+  selectIsCollectionLoaded,
+};
