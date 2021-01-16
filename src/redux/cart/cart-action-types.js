@@ -4,6 +4,7 @@ let cartActionTypes = {
   REMOVE_ITEM: "REMOVE_ITEM",
   DECREASE_ITEM_QUANTITY: "DECREASE_ITEM_QUANTITY",
   UPDATE_CART_ITEMS: "UPDATE_CART_ITEMS",
+  CLEAR_CART: "CLEAR_CART",
 };
 
 export default cartActionTypes;
