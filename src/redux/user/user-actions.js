@@ -22,3 +22,16 @@ export let signInFailure = (error) => ({
 export let checkUserSession = () => ({
   type: userActionTypes.CHECK_USER_SESSION,
 });
+
+export let signOutStart = () => ({
+  type: userActionTypes.SIGN_OUT_START,
+});
+
+export let signOutSuccess = () => ({
+  type: userActionTypes.SIGN_OUT_SUCCESS,
+});
+
+export let signOutFailure = (error) => ({
+  type: userActionTypes.SIGN_OUT_FAILURE,
+  payload: error,
+});
