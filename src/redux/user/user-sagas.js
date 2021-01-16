@@ -8,6 +8,7 @@ import {
   auth,
   googleProvider,
   createUserDocument,
+  getCurrentUser,
 } from "../../firebase/firebaseUtilities";
 
 function* getSnapshotFromUserAuth(userAuth) {
@@ -46,8 +47,26 @@ function* onEmailSignInStart() {
   yield takeLatest(userActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
 }
 
+function* isUserAuthenticated() {
+  try {
+    let userAuth = yield getCurrentUser();
+    if (!userAuth) return;
+    yield getSnapshotFromUserAuth(userAuth);
+  } catch (error) {
+    yield put(signInFailure(error));
+  }
+}
+
+function* onCheckUserSession() {
+  yield takeLatest(userActionTypes.CHECK_USER_SESSION, isUserAuthenticated);
+}
+
 function* userSagas() {
-  yield all([call(onGoogleSignInStart), call(onEmailSignInStart)]);
+  yield all([
+    call(onGoogleSignInStart),
+    call(onEmailSignInStart),
+    call(onCheckUserSession),
+  ]);
 }
 
 export default userSagas;
