@@ -2,16 +2,12 @@ import { takeLatest, all, put, call } from "redux-saga/effects";
 
 import userActionTypes from "./user-action-types";
 
-<<<<<<< HEAD
 import {
   signInFailure,
   signInSuccess,
   signOutFailure,
   signOutSuccess,
 } from "./user-actions";
-=======
-import { signInFailure, signInSuccess } from "./user-actions";
->>>>>>> 4d9006d9109e35ee65a24a81706614f4cf592f85
 
 import {
   auth,
