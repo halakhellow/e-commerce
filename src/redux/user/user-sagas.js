@@ -2,12 +2,7 @@ import { takeLatest, all, put, call } from "redux-saga/effects";
 
 import userActionTypes from "./user-action-types";
 
-import {
-  googleSignInFailure,
-  googleSignInSuccess,
-  emailSignInSuccess,
-  emailSignInFailure,
-} from "./user-actions";
+import { signInFailure, signInSuccess } from "./user-actions";
 
 import {
   auth,
@@ -15,14 +10,22 @@ import {
   createUserDocument,
 } from "../../firebase/firebaseUtilities";
 
+function* getSnapshotFromUserAuth(userAuth) {
+  try {
+    let userRef = yield call(createUserDocument, userAuth);
+    let snapShot = yield userRef.get();
+    yield put(signInSuccess({ id: snapShot.id, ...snapShot.data() }));
+  } catch (error) {
+    put(signInFailure(error.message));
+  }
+}
+
 function* signInWithGoogle() {
   try {
     let { user } = yield auth.signInWithPopup(googleProvider);
-    let userRef = yield call(createUserDocument, user);
-    let snapShot = yield userRef.get();
-    yield put(googleSignInSuccess({ id: snapShot.id, ...snapShot.data() }));
+    yield getSnapshotFromUserAuth(user);
   } catch (error) {
-    put(googleSignInFailure(error.message));
+    put(signInFailure(error.message));
   }
 }
 
@@ -33,11 +36,9 @@ function* onGoogleSignInStart() {
 function* signInWithEmail({ payload: { email, password } }) {
   try {
     let { user } = yield auth.signInWithEmailAndPassword(email, password);
-    let userRef = yield call(createUserDocument, user);
-    let snapShot = yield userRef.get();
-    yield put(emailSignInSuccess({ id: snapShot.id, ...snapShot.data() }));
+    yield getSnapshotFromUserAuth(user);
   } catch (error) {
-    put(emailSignInFailure(error.message));
+    put(signInFailure(error.message));
   }
 }
 
