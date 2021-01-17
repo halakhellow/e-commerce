@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  -Redux-persist  
  -Dynamic routing (Route parameters)  
  -Stripe  
- -Asynchronous Redux (Redux-thunk)
+ -Asynchronous Redux (Redux-saga)
 ## Deployment : 
  https://halakhellow.github.io/e-commerce/
 
