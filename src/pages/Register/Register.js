@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import FormInput from "../../components/FormInput/FormInput";
 import CustomBtn from "../../components/CustomBtn/CustomBtn";
-import { auth, createUserDocument } from "../../firebase/firebaseUtilities";
-import "./Register.css";
 import HrWithText from "../../components/HrWithText/HrWithText";
+
+import { signUpStart } from "../../redux/user/user-actions";
+
+import "./Register.css";
 
 class Register extends Component {
   constructor() {
@@ -30,19 +34,7 @@ class Register extends Component {
       this.setState({ errors: "The passwords don't match" });
       return;
     }
-    try {
-      let { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await createUserDocument(user, { displayName });
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        errors: "",
-      });
-    } catch (err) {
-      console.error(err);
-    }
+    this.props.signUpStart({ email, password, displayName });
   }
 
   render() {
@@ -95,4 +87,8 @@ class Register extends Component {
   }
 }
 
-export default Register;
+let mapDispatchToProps = (dispatch) => ({
+  signUpStart: (userData) => dispatch(signUpStart(userData)),
+});
+
+export default connect(null, mapDispatchToProps)(Register);
