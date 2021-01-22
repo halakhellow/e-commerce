@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -13,72 +13,63 @@ import {
 
 import "./SignIn.css";
 
-class SignIn extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-  async handleSubmit(e) {
+let SignIn = ({ emailSignInStart, googleSignInStart }) => {
+  let [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
+
+  let { email, password } = userData;
+
+  let handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  };
+  let handleSubmit = async (e) => {
     e.preventDefault();
-    let { email, password } = this.state;
-    this.props.emailSignInStart(email, password);
-  }
-  render() {
-    return (
-      <div className="SignIn">
-        <HrWithText content="Welcome!" />
-        <form onSubmit={this.handleSubmit}>
-          <FormInput
-            handleChange={this.handleChange}
-            value={this.state.email}
-            faIcon="envelope"
-            name="email"
-            type="text"
-            placeholder="Email"
-            required
-          />
-          <FormInput
-            handleChange={this.handleChange}
-            value={this.state.password}
-            faIcon="lock"
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-          />
-          <div className="SignIn-buttons">
-            <CustomBtn type="submit">Sign in</CustomBtn>
-            <CustomBtn
-              type="button"
-              onClick={this.props.googleSignInStart}
-              googleSignIn
-            >
-              Sign in with
-              <span>G</span>
-              <span>o</span>
-              <span>o</span>
-              <span>g</span>
-              <span>l</span>
-              <span>e</span>
-            </CustomBtn>
-          </div>
-        </form>
-        <div className="register">
-          <span>Don't have an account ? </span>
-          <Link to="/register">Sign up</Link>
+    emailSignInStart(email, password);
+  };
+  return (
+    <div className="SignIn">
+      <HrWithText content="Welcome!" />
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          handleChange={handleChange}
+          value={email}
+          faIcon="envelope"
+          name="email"
+          type="text"
+          placeholder="Email"
+          required
+        />
+        <FormInput
+          handleChange={handleChange}
+          value={password}
+          faIcon="lock"
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+        />
+        <div className="SignIn-buttons">
+          <CustomBtn type="submit">Sign in</CustomBtn>
+          <CustomBtn type="button" onClick={googleSignInStart} googleSignIn>
+            Sign in with
+            <span>G</span>
+            <span>o</span>
+            <span>o</span>
+            <span>g</span>
+            <span>l</span>
+            <span>e</span>
+          </CustomBtn>
         </div>
+      </form>
+      <div className="register">
+        <span>Don't have an account ? </span>
+        <Link to="/register">Sign up</Link>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 let mapDispatchToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSignInStart()),

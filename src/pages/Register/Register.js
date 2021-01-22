@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import FormInput from "../../components/FormInput/FormInput";
@@ -9,83 +9,76 @@ import { signUpStart } from "../../redux/user/user-actions";
 
 import "./Register.css";
 
-class Register extends Component {
-  constructor() {
-    super();
-    this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      errors: "",
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
+let Register = ({ signUpStart }) => {
+  let [userData, setUserData] = useState({
+    displayName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    errors: "",
+  });
 
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+  let { displayName, email, password, confirmPassword, errors } = userData;
 
-  async handleSubmit(e) {
+  let handleChange = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  };
+
+  let handleSubmit = async (e) => {
     e.preventDefault();
-    let { displayName, email, password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
-      this.setState({ errors: "The passwords don't match" });
+      setUserData({ ...userData, errors: "The passwords don't match" });
       return;
     }
-    this.props.signUpStart({ email, password, displayName });
-  }
+    signUpStart({ email, password, displayName });
+  };
 
-  render() {
-    let { displayName, email, password, confirmPassword } = this.state;
-    return (
-      <div className="Register">
-        <HrWithText content="Create New Account" />
-        <form onSubmit={this.handleSubmit}>
-          <FormInput
-            handleChange={this.handleChange}
-            value={displayName}
-            type="text"
-            name="displayName"
-            faIcon="user"
-            placeholder="Name"
-            required
-          />
-          <FormInput
-            handleChange={this.handleChange}
-            value={email}
-            type="email"
-            name="email"
-            faIcon="envelope"
-            placeholder="Email"
-            required
-          />
-          <FormInput
-            handleChange={this.handleChange}
-            value={password}
-            type="password"
-            name="password"
-            faIcon="lock"
-            placeholder="Password"
-            required
-          />
-          <FormInput
-            handleChange={this.handleChange}
-            value={confirmPassword}
-            type="password"
-            name="confirmPassword"
-            faIcon="lock"
-            placeholder="Confirm Password"
-            required
-          />
-          <div className="Register-error">{this.state.errors}</div>
-          <CustomBtn type="submit">Sign up</CustomBtn>
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="Register">
+      <HrWithText content="Create New Account" />
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          handleChange={handleChange}
+          value={displayName}
+          type="text"
+          name="displayName"
+          faIcon="user"
+          placeholder="Name"
+          required
+        />
+        <FormInput
+          handleChange={handleChange}
+          value={email}
+          type="email"
+          name="email"
+          faIcon="envelope"
+          placeholder="Email"
+          required
+        />
+        <FormInput
+          handleChange={handleChange}
+          value={password}
+          type="password"
+          name="password"
+          faIcon="lock"
+          placeholder="Password"
+          required
+        />
+        <FormInput
+          handleChange={handleChange}
+          value={confirmPassword}
+          type="password"
+          name="confirmPassword"
+          faIcon="lock"
+          placeholder="Confirm Password"
+          required
+        />
+        <div className="Register-error">{errors}</div>
+        <CustomBtn type="submit">Sign up</CustomBtn>
+      </form>
+    </div>
+  );
+};
 
 let mapDispatchToProps = (dispatch) => ({
   signUpStart: (userData) => dispatch(signUpStart(userData)),
