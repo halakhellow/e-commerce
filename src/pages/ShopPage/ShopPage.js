@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchCollectionsStart } from "../../redux/shop/shop-actions";
 
-import CollectionOverviewContainer from "../../components/CollectionOverview/CollectionOverviewContainer";
-import CollectionPageContainer from "../CollectionPage/CollectionPageContainer";
+import Loader from "../../components/Loader/Loader";
+let CollectionOverviewContainer = lazy(() =>
+  import("../../components/CollectionOverview/CollectionOverviewContainer")
+);
+let CollectionPageContainer = lazy(() =>
+  import("../CollectionPage/CollectionPageContainer")
+);
 
 let ShopPage = ({ fetchCollectionsStart }) => {
   useEffect(() => {
@@ -13,14 +18,14 @@ let ShopPage = ({ fetchCollectionsStart }) => {
   }, [fetchCollectionsStart]);
 
   return (
-    <div>
+    <Suspense fallback={<Loader />}>
       <Route exact path="/shop" component={CollectionOverviewContainer} />
       <Route
         exact
         path="/shop/:collection"
         component={CollectionPageContainer}
       />
-    </div>
+    </Suspense>
   );
 };
 
