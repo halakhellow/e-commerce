@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -7,40 +7,40 @@ import { selectCurrentUser } from "./redux/user/user-selectors";
 
 import { checkUserSession } from "./redux/user/user-actions";
 
-import HomePage from "./pages/HomePage/HomePage";
-import ShopPage from "./pages/ShopPage/ShopPage";
-import CheckoutPage from "./pages/Checkout/CheckoutPage";
-import Header from "./components/Header/Header";
-import SignIn from "./pages/SignIn/SignIn";
-import Register from "./pages/Register/Register";
+import Loader from "./components/Loader/Loader";
 
 import "./App.css";
 
-let App = ({ checkUserSession }) => {
+let HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+let ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
+let CheckoutPage = lazy(() => import("./pages/Checkout/CheckoutPage"));
+let Header = lazy(() => import("./components/Header/Header"));
+let SignIn = lazy(() => import("./pages/SignIn/SignIn"));
+let Register = lazy(() => import("./pages/Register/Register"));
+
+let App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
     checkUserSession();
   }, [checkUserSession]);
 
   return (
     <div>
-      <Header />
-      <Route exact path={["/e-commerce", "/"]} component={HomePage} />
-      <Route path="/shop" component={ShopPage} />
-      <Route exact path="/checkout" component={CheckoutPage} />
-      <Route
-        exact
-        path="/sign-in"
-        render={() =>
-          this.props.currentUser ? <Redirect to="/" /> : <SignIn />
-        }
-      />
-      <Route
-        exact
-        path="/register"
-        render={() =>
-          this.props.currentUser ? <Redirect to="/" /> : <Register />
-        }
-      />
+      <Suspense fallback={<Loader />}>
+        <Header />
+        <Route exact path={["/e-commerce", "/"]} component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={CheckoutPage} />
+        <Route
+          exact
+          path="/sign-in"
+          render={() => (currentUser ? <Redirect to="/" /> : <SignIn />)}
+        />
+        <Route
+          exact
+          path="/register"
+          render={() => (currentUser ? <Redirect to="/" /> : <Register />)}
+        />
+      </Suspense>
     </div>
   );
 };
