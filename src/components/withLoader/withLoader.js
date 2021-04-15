@@ -1,19 +1,8 @@
 import React from "react";
 
-import "./withLoader.css";
+import Loader from "../Loader/Loader";
 
-let withLoader = (WrappedComponent) => {
-  let loader = ({ isLoading, ...otherProps }) => {
-    return isLoading ? (
-      <div className="loader-container">
-        <div className="loader"></div>
-      </div>
-    ) : (
-      <WrappedComponent {...otherProps} />
-    );
-  };
-
-  return loader;
-};
+let withLoader = (WrappedComponent) => ({ isLoading, ...otherProps }) =>
+  isLoading ? <Loader /> : <WrappedComponent {...otherProps} />;
 
 export default withLoader;
