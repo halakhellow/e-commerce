@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
 import CollectionItem from "../CollectionItem/CollectionItem";
+
 import "./CollectionPreview.css";
 
 class CollectionPreview extends Component {
@@ -7,7 +10,13 @@ class CollectionPreview extends Component {
     let collection = this.props.collection;
     return (
       <div className="CollectionPreview">
-        <h3>{collection.title}</h3>
+        <h3
+          onClick={() =>
+            this.props.history.push(`/shop/${collection.title.toLowerCase()}`)
+          }
+        >
+          {collection.title}
+        </h3>
         <div className="CollectionPreview-div">
           {collection.items
             .filter((item, index) => index < 5)
@@ -20,4 +29,4 @@ class CollectionPreview extends Component {
   }
 }
 
-export default CollectionPreview;
+export default withRouter(CollectionPreview);
