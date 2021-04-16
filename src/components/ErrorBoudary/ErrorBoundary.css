@@ -1,0 +1,24 @@
+.ErrorContainer {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.ErrorImage {
+  display: inline-block;
+  background-image: url("https://i.imgur.com/g3hgqe8.png");
+  background-size: cover;
+  background-position: center;
+  width: 40vh;
+  height: 40vh;
+}
+
+.ErrorText {
+  font-size: 26px;
+  margin-top: 2rem;
+  color: #2b3a67;
+}
