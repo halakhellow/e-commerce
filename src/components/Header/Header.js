@@ -7,6 +7,8 @@ import { selectCurrentUser } from "../../redux/user/user-selectors";
 import { selectCartHidden } from "../../redux/cart/cart-selectors";
 import { signOutStart } from "../../redux/user/user-actions";
 
+import logo from "../../images/logo.png";
+
 import CartIcon from "../CartIcon/CartIcon";
 import CartDropdown from "../CartDropdown/CartDropdown";
 
@@ -21,7 +23,7 @@ class Header extends Component {
           SHOP
         </NavLink>
         <NavLink className="option logo" to="/">
-          Home
+          <img src={logo} alt="logo" />
         </NavLink>
         <div className="last-options">
           {this.props.currentUser ? (

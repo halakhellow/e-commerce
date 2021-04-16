@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #2b3a67;
-  padding: 0.7rem 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .Header .option {
@@ -22,9 +22,13 @@
   color: yellow;
 }
 .Header .logo.active {
-  color: #e7e8ee;
   margin-left: 9rem;
 }
+
+.Header .logo img {
+  width: 4.5rem;
+}
+
 .last-options {
   display: flex;
   align-items: center;
